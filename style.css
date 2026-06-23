@@ -1,0 +1,960 @@
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Orbitron',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+
+background:
+linear-gradient(
+180deg,
+#020412,
+#050b25,
+#0a1038,
+#020412);
+
+color:white;
+
+overflow-x:hidden;
+
+min-height:100vh;
+}
+
+/* =====================
+   STARS BACKGROUND
+===================== */
+
+.stars{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+z-index:-1;
+
+background:
+radial-gradient(
+white 1px,
+transparent 1px);
+
+background-size:
+50px 50px;
+
+animation:
+moveStars 80s linear infinite;
+}
+
+@keyframes moveStars{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-1000px);
+}
+
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+}
+
+nav{
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+padding:20px 50px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+backdrop-filter:blur(15px);
+
+background:
+rgba(0,0,0,.15);
+}
+
+nav h1{
+
+font-size:2rem;
+
+color:#4fc3ff;
+
+text-shadow:
+0 0 20px #4fc3ff;
+}
+
+#searchBox{
+
+padding:12px;
+
+border:none;
+
+outline:none;
+
+border-radius:30px;
+
+width:250px;
+
+background:
+rgba(255,255,255,.1);
+
+color:white;
+}
+
+.hero-content{
+
+max-width:900px;
+}
+
+.hero-content h2{
+
+font-size:4rem;
+
+margin-bottom:20px;
+
+background:
+linear-gradient(
+90deg,
+#4fc3ff,
+#b388ff,
+#4fc3ff);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:
+transparent;
+
+animation:
+glowText 4s infinite;
+}
+
+@keyframes glowText{
+
+50%{
+filter:brightness(1.5);
+}
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:1.8;
+
+color:#ddd;
+
+margin-bottom:30px;
+}
+
+.hero button{
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:50px;
+
+background:
+linear-gradient(
+45deg,
+#4fc3ff,
+#7c4dff);
+
+color:white;
+
+font-size:1rem;
+
+cursor:pointer;
+
+transition:.4s;
+}
+
+.hero button:hover{
+
+transform:
+scale(1.1);
+
+box-shadow:
+0 0 30px #4fc3ff;
+}
+
+/* =====================
+   SECTION TITLE
+===================== */
+
+.section-title{
+
+text-align:center;
+
+font-size:3rem;
+
+margin:80px 0 50px;
+
+color:#4fc3ff;
+
+text-shadow:
+0 0 15px #4fc3ff;
+}
+
+/* =====================
+   GALLERY GRID
+===================== */
+
+.gallery-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:30px;
+
+padding:40px;
+}
+
+/* =====================
+   PLANET CARDS
+===================== */
+
+.planet-card{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:25px;
+
+background:
+rgba(255,255,255,.05);
+
+backdrop-filter:blur(10px);
+
+cursor:pointer;
+
+transition:.5s;
+
+border:
+1px solid rgba(79,195,255,.2);
+}
+
+.planet-card:hover{
+
+transform:
+translateY(-15px)
+scale(1.03);
+
+box-shadow:
+0 0 30px #4fc3ff,
+0 0 60px #4fc3ff;
+}
+
+.planet-card img{
+
+width:100%;
+
+height:320px;
+
+object-fit:cover;
+
+transition:.6s;
+}
+
+.planet-card:hover img{
+
+transform:scale(1.1);
+}
+
+.planet-card h3{
+
+padding:20px;
+
+font-size:1.4rem;
+
+text-align:center;
+
+color:white;
+}
+
+/* =====================
+   PLANET GLOW EFFECT
+===================== */
+
+.planet-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-50%;
+
+left:-50%;
+
+width:200%;
+
+height:200%;
+
+background:
+conic-gradient(
+transparent,
+rgba(79,195,255,.3),
+transparent);
+
+animation:
+rotateGlow 8s linear infinite;
+
+opacity:0;
+}
+
+.planet-card:hover::before{
+
+opacity:1;
+}
+
+@keyframes rotateGlow{
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+/* =====================
+   MODAL
+===================== */
+
+.modal{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+rgba(0,0,0,.9);
+
+z-index:9999;
+
+overflow:auto;
+
+backdrop-filter:blur(10px);
+}
+
+.modal-content{
+
+max-width:1000px;
+
+margin:50px auto;
+
+padding:30px;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+145deg,
+rgba(10,20,60,.95),
+rgba(5,10,30,.95));
+
+border:
+1px solid rgba(79,195,255,.3);
+
+box-shadow:
+0 0 40px #4fc3ff;
+}
+
+.close-btn{
+
+float:right;
+
+font-size:40px;
+
+cursor:pointer;
+
+color:#4fc3ff;
+}
+
+.close-btn:hover{
+
+transform:rotate(180deg);
+
+transition:.5s;
+}
+
+/* =====================
+   PLANET DETAILS
+===================== */
+
+.planet-title{
+
+font-size:3rem;
+
+text-align:center;
+
+margin-bottom:20px;
+
+color:#4fc3ff;
+}
+
+.planet-main-image{
+
+width:100%;
+
+max-height:500px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+margin-bottom:25px;
+}
+
+.planet-description{
+
+line-height:2;
+
+font-size:1.1rem;
+
+color:#ddd;
+
+margin-bottom:30px;
+}
+
+/* =====================
+   MOON GALLERY
+===================== */
+
+.moon-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+margin-top:30px;
+}
+
+.moon-card{
+
+background:
+rgba(255,255,255,.05);
+
+padding:15px;
+
+border-radius:20px;
+
+transition:.4s;
+}
+
+.moon-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+0 0 25px #b388ff;
+}
+
+.moon-card img{
+
+width:100%;
+
+height:180px;
+
+object-fit:cover;
+
+border-radius:15px;
+}
+
+.moon-card h4{
+
+margin-top:15px;
+
+text-align:center;
+}
+
+/* =====================
+   FACTS SECTION
+===================== */
+
+.facts{
+
+padding:100px 40px;
+}
+
+.facts h2{
+
+text-align:center;
+
+font-size:3rem;
+
+margin-bottom:50px;
+
+color:#4fc3ff;
+}
+
+.facts-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:25px;
+}
+
+.fact-card{
+
+padding:30px;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.05);
+
+backdrop-filter:blur(10px);
+
+transition:.5s;
+}
+
+.fact-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+0 0 25px #4fc3ff;
+}
+
+.fact-card h3{
+
+margin-bottom:15px;
+
+color:#4fc3ff;
+}
+
+/* =====================
+   TIMELINE
+===================== */
+
+.timeline{
+
+padding:100px 40px;
+}
+
+.timeline h2{
+
+text-align:center;
+
+font-size:3rem;
+
+margin-bottom:60px;
+
+color:#4fc3ff;
+
+text-shadow:
+0 0 15px #4fc3ff;
+}
+
+.timeline-container{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+}
+
+.timeline-item{
+
+width:220px;
+
+padding:25px;
+
+text-align:center;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.05);
+
+backdrop-filter:blur(10px);
+
+transition:.5s;
+}
+
+.timeline-item:hover{
+
+transform:
+translateY(-12px);
+
+box-shadow:
+0 0 25px #7c4dff;
+}
+
+.timeline-item h3{
+
+font-size:2rem;
+
+margin-bottom:10px;
+
+color:#b388ff;
+}
+
+/* =====================
+   FOOTER
+===================== */
+
+footer{
+
+margin-top:100px;
+
+padding:60px 20px;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+rgba(0,0,0,.2),
+rgba(0,0,0,.7));
+}
+
+footer h2{
+
+font-size:2.5rem;
+
+margin-bottom:20px;
+
+color:#4fc3ff;
+
+text-shadow:
+0 0 20px #4fc3ff;
+}
+
+footer p{
+
+max-width:800px;
+
+margin:auto;
+
+line-height:1.8;
+
+color:#ccc;
+}
+
+/* =====================
+   FLOATING NEBULA
+===================== */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:-200px;
+left:-200px;
+
+width:600px;
+height:600px;
+
+background:
+radial-gradient(
+circle,
+rgba(79,195,255,.2),
+transparent 70%);
+
+filter:blur(80px);
+
+animation:
+nebulaMove1 15s ease-in-out infinite;
+
+pointer-events:none;
+
+z-index:-2;
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+bottom:-250px;
+right:-250px;
+
+width:700px;
+height:700px;
+
+background:
+radial-gradient(
+circle,
+rgba(179,136,255,.2),
+transparent 70%);
+
+filter:blur(90px);
+
+animation:
+nebulaMove2 18s ease-in-out infinite;
+
+pointer-events:none;
+
+z-index:-2;
+}
+
+@keyframes nebulaMove1{
+
+0%,100%{
+transform:
+translate(0,0);
+}
+
+50%{
+transform:
+translate(150px,100px);
+}
+
+}
+
+@keyframes nebulaMove2{
+
+0%,100%{
+transform:
+translate(0,0);
+}
+
+50%{
+transform:
+translate(-150px,-100px);
+}
+
+}
+
+/* =====================
+   FLOATING PLANETS
+===================== */
+
+.planet-card{
+
+animation:
+floatPlanet 6s ease-in-out infinite;
+}
+
+@keyframes floatPlanet{
+
+0%,100%{
+transform:
+translateY(0);
+}
+
+50%{
+transform:
+translateY(-10px);
+}
+
+}
+
+/* =====================
+   SCROLLBAR
+===================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+
+background:#050b25;
+}
+
+::-webkit-scrollbar-thumb{
+
+background:
+linear-gradient(
+180deg,
+#4fc3ff,
+#7c4dff);
+
+border-radius:20px;
+}
+
+/* =====================
+   MOBILE RESPONSIVE
+===================== */
+
+@media(max-width:992px){
+
+.gallery-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+}
+
+.facts-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+}
+
+.hero-content h2{
+
+font-size:3rem;
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
+
+flex-direction:column;
+
+gap:15px;
+
+padding:20px;
+}
+
+#searchBox{
+
+width:100%;
+}
+
+.gallery-grid{
+
+grid-template-columns:1fr;
+
+padding:20px;
+}
+
+.facts-grid{
+
+grid-template-columns:1fr;
+}
+
+.timeline-container{
+
+flex-direction:column;
+
+align-items:center;
+}
+
+.hero-content h2{
+
+font-size:2.2rem;
+}
+
+.hero-content p{
+
+font-size:1rem;
+}
+
+.section-title{
+
+font-size:2rem;
+}
+
+}
+
+/* =====================
+   SHOOTING STAR
+===================== */
+
+.stars::after{
+
+content:"";
+
+position:absolute;
+
+top:20%;
+
+left:-200px;
+
+width:200px;
+
+height:3px;
+
+background:
+linear-gradient(
+90deg,
+white,
+transparent);
+
+animation:
+shootingStar 7s linear infinite;
+}
+
+@keyframes shootingStar{
+
+0%{
+
+transform:
+translateX(0)
+translateY(0)
+rotate(25deg);
+
+opacity:1;
+}
+
+100%{
+
+transform:
+translateX(1800px)
+translateY(500px)
+rotate(25deg);
+
+opacity:0;
+}
+
+}
+
+
+

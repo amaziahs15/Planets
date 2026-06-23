@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cosmic Explorer Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<header class="hero">
+
+<nav>
+
+<h1>🌌 COSMIC EXPLORER</h1>
+
+<input
+type="text"
+id="searchBox"
+placeholder="Search Planets...">
+
+</nav>
+
+<div class="hero-content">
+
+<h2>
+Explore The Solar System
+</h2>
+
+<p>
+Discover planets, moons, rings,
+space phenomena and hidden wonders
+of our cosmic neighborhood.
+</p>
+
+<a href="#gallery">
+<button>
+Start Exploring 🚀
+</button>
+</a>
+
+</div>
+
+</header>
+
+<section id="gallery">
+
+<h2 class="section-title">
+
+🪐 Planet Gallery
+
+</h2>
+
+<div class="gallery-grid">
+
+<div class="planet-card"
+onclick="showPlanet('mercury')">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Mercury_in_true_color.jpg">
+
+<h3>Mercury</h3>
+
+</div>
+
+<div class="planet-card"
+onclick="showPlanet('venus')">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg">
+
+<h3>Venus</h3>
+
+</div>
+
+<div class="planet-card"
+onclick="showPlanet('earth')">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg">
+
+<h3>Earth</h3>
+
+</div>
+
+<div class="planet-card"
+onclick="showPlanet('mars')">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg">
+
+<h3>Mars</h3>
+
+</div>
+
+<div class="planet-card"
+onclick="showPlanet('jupiter')">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg">
+
+<h3>Jupiter</h3>
+
+</div>
+
+<div class="planet-card"
+onclick="showPlanet('saturn')">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg">
+
+<h3>Saturn</h3>
+
+</div>
+
+<div class="planet-card"
+onclick="showPlanet('uranus')">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg">
+
+<h3>Uranus</h3>
+
+</div>
+
+<div class="planet-card"
+onclick="showPlanet('neptune')">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg">
+
+<h3>Neptune</h3>
+
+</div>
+
+<div class="planet-card"
+onclick="showPlanet('pluto')">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Nh-pluto-in-true-color_2x_JPEG-edit-frame.jpg">
+
+<h3>Pluto</h3>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+</section>
+
+<!-- PLANET DETAILS MODAL -->
+
+<div id="planetModal" class="modal">
+
+<div class="modal-content">
+
+<span
+class="close-btn"
+onclick="closeModal()">
+
+&times;
+
+</span>
+
+<div id="planetData">
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FACTS SECTION -->
+
+<section class="facts">
+
+<h2>
+
+🚀 Amazing Space Facts
+
+</h2>
+
+<div class="facts-grid">
+
+<div class="fact-card">
+
+<h3>☀️ Sun</h3>
+
+<p>
+Contains 99.86% of the
+Solar System's mass.
+</p>
+
+</div>
+
+<div class="fact-card">
+
+<h3>🪐 Jupiter</h3>
+
+<p>
+Has over 95 known moons.
+</p>
+
+</div>
+
+<div class="fact-card">
+
+<h3>🌍 Earth</h3>
+
+<p>
+The only known planet
+to support life.
+</p>
+
+</div>
+
+<div class="fact-card">
+
+<h3>🌌 Milky Way</h3>
+
+<p>
+Contains over
+100 billion stars.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section class="timeline">
+
+<h2>
+
+⏳ Space Exploration Timeline
+
+</h2>
+
+<div class="timeline-container">
+
+<div class="timeline-item">
+
+<h3>1957</h3>
+
+<p>
+Sputnik 1 becomes
+the first artificial satellite.
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>1969</h3>
+
+<p>
+Apollo 11 lands humans
+on the Moon.
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>1990</h3>
+
+<p>
+Hubble Space Telescope
+launched.
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>2021</h3>
+
+<p>
+James Webb Space Telescope
+launched.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>
+
+🌌 Cosmic Explorer Gallery
+
+</h2>
+
+<p>
+
+Explore planets, moons,
+space missions and the wonders
+of our universe.
+
+</p>
+
+<p>
+
+Created for Task 6:
+Responsive Image Gallery
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+
+
